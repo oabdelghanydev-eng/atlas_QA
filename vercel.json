@@ -8,6 +8,14 @@
     ],
     "routes": [
         {
+            "src": "/mastrouh_qa",
+            "dest": "/mastrouh_qa.html"
+        },
+        {
+            "src": "/",
+            "dest": "/index.html"
+        },
+        {
             "src": "/(.*)",
             "dest": "/$1"
         }
