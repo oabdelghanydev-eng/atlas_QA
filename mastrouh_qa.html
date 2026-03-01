@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بنك أسئلة الكبار - ملتقى مسطروه</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./public/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/favicon/apple-touch-icon.png" />
+
+    <!-- SEO -->
+    <meta name="description"
+        content="البنك المفتوح لأسئلة المعرفة الشاملة المقدم من ملتقى مسطروه السنوي - لتطوير ونشر المعرفة." />
+    <meta name="theme-color" content="#00203F" />
+    <meta property="og:title" content="بنك أسئلة الكبار - ملتقى مسطروه" />
+    <meta property="og:description" content="البنك المفتوح لأسئلة المعرفة الشاملة - ملتقى مسطروه السنوي" />
+    <meta property="og:image" content="./public/images/logo.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Montserrat:wght@400;700;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            /* Mastrouh Institutional Palette */
+            --royal-navy: #00203F;
+            --metallic-gold: #D4AF37;
+            --gold-light: #F9F2DD;
+            --off-white: #F4F6F9;
+            --dark-charcoal: #333333;
+            --white: #ffffff;
+            --border-light: rgba(0, 32, 63, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 4px 6px rgba(0, 32, 63, 0.05);
+            --shadow-md: 0 10px 20px rgba(0, 32, 63, 0.08);
+            --shadow-hover: 0 15px 35px rgba(0, 32, 63, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--off-white);
+            color: var(--dark-charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-text-size-adjust: 100%;
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+        }
+
+        .en-text {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ========== Hero ========== */
+        .hero {
+            background-color: var(--royal-navy);
+            color: var(--white);
+            padding: 40px 16px 35px;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid var(--metallic-gold);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-logo {
+            margin-bottom: 15px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-logo img {
+            height: 65px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.3));
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            animation: fadeInDown 0.8s ease 0.1s both;
+            line-height: 1.4;
+        }
+
+        .tagline {
+            color: var(--metallic-gold);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            animation: fadeInDown 0.8s ease 0.2s both;
+            opacity: 0.9;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 10px 20px;
+            min-width: 120px;
+            flex: 1;
+            max-width: 180px;
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--metallic-gold);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        /* ========== Search ========== */
+        .search-section {
+            padding: 15px 12px;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .search-box {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 50px 14px 16px;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--royal-navy);
+            transition: var(--transition);
+            background: var(--off-white);
+        }
+
+        .search-box input::placeholder {
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--metallic-gold);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--metallic-gold);
+            font-size: 1.2rem;
+        }
+
+        /* ========== Category Nav (Desktop: horizontal, Mobile: dropdown) ========== */
+
+        /* --- Mobile Dropdown --- */
+        .cat-dropdown-wrapper {
+            max-width: 1200px;
+            margin: 15px auto 10px;
+            padding: 0 12px;
+            position: relative;
+        }
+
+        .cat-dropdown-toggle {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--royal-navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .cat-dropdown-toggle:hover,
+        .cat-dropdown-toggle:focus {
+            border-color: var(--metallic-gold);
+        }
+
+        .cat-dropdown-toggle .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cat-dropdown-toggle .toggle-chevron {
+            transition: transform 0.3s ease;
+            color: var(--metallic-gold);
+        }
+
+        .cat-dropdown-wrapper.open .toggle-chevron {
+            transform: rotate(180deg);
+        }
+
+        .cat-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 5px);
+            right: 12px;
+            left: 12px;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 32, 63, 0.15);
+            z-index: 200;
+            display: none;
+            overflow: hidden;
+            animation: slideDown 0.25s ease;
+        }
+
+        .cat-dropdown-wrapper.open .cat-dropdown-menu {
+            display: block;
+        }
+
+        .cat-dropdown-item {
+            width: 100%;
+            padding: 14px 18px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-light);
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--royal-navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.2s;
+            text-align: right;
+        }
+
+        .cat-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .cat-dropdown-item:hover,
+        .cat-dropdown-item:focus {
+            background: var(--gold-light);
+        }
+
+        .cat-dropdown-item.active {
+            background: var(--royal-navy);
+            color: var(--metallic-gold);
+        }
+
+        .cat-dropdown-item i {
+            width: 22px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        /* --- Desktop Horizontal Buttons (hidden on mobile) --- */
+        .cat-nav {
+            max-width: 1200px;
+            margin: 20px auto 15px;
+            padding: 0 12px;
+            display: none;
+            /* hidden by default (mobile first) */
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .cat-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            color: var(--royal-navy);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+        }
+
+        .cat-btn:hover {
+            border-color: var(--metallic-gold);
+            color: var(--metallic-gold);
+            transform: translateY(-2px);
+        }
+
+        .cat-btn.active {
+            background: var(--royal-navy);
+            color: var(--metallic-gold);
+            border-color: var(--royal-navy);
+        }
+
+        /* ========== Main Content ========== */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 12px 60px;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .category-group {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .category-header-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 12px;
+            gap: 10px;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--royal-navy);
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            right: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--metallic-gold);
+            border-radius: 4px;
+        }
+
+        .category-title h2 {
+            font-size: inherit;
+        }
+
+        .category-icon {
+            color: var(--metallic-gold);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .category-count-badge {
+            font-size: 0.8rem;
+            background: var(--royal-navy);
+            padding: 5px 12px;
+            border-radius: 50px;
+            color: var(--white);
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* ========== Questions Grid (Mobile First!) ========== */
+        .q-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .q-card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .q-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--metallic-gold);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: top;
+        }
+
+        .q-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .q-card:hover::before,
+        .q-card.open::before {
+            transform: scaleY(1);
+        }
+
+        .q-card.open {
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: var(--shadow-md);
+        }
+
+        .q-header {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .q-icon-badge {
+            background: var(--gold-light);
+            color: var(--metallic-gold);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .q-text-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .q-number-label {
+            font-size: 0.75rem;
+            color: #999;
+            font-weight: 700;
+            margin-bottom: 3px;
+            display: block;
+            font-family: 'Montserrat', 'Cairo', sans-serif;
+        }
+
+        .q-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--royal-navy);
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .q-answer-wrapper {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-light);
+            display: none;
+            animation: slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .q-card.open .q-answer-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .answer-icon {
+            flex-shrink: 0;
+            background: var(--royal-navy);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .answer-text {
+            font-weight: 800;
+            color: var(--dark-charcoal);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-top: 2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .q-hint {
+            margin-top: 12px;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #aaa;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .q-hint i {
+            color: var(--metallic-gold);
+        }
+
+        .q-card.open .q-hint {
+            display: none;
+        }
+
+        /* Highlighting Search */
+        mark.highlight-text {
+            background-color: var(--gold-light);
+            color: var(--royal-navy);
+            padding: 0 3px;
+            border-radius: 4px;
+            font-weight: 900;
+            border-bottom: 2px solid var(--metallic-gold);
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            background: var(--royal-navy);
+            color: var(--off-white);
+            text-align: center;
+            padding: 30px 16px;
+            margin-top: auto;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--metallic-gold);
+        }
+
+        footer .footer-logo {
+            width: 110px;
+            margin: 0 auto 15px;
+            display: block;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        footer span {
+            color: var(--metallic-gold);
+            font-weight: 700;
+        }
+
+        /* Loader & No Results */
+        .loader,
+        .no-results {
+            text-align: center;
+            padding: 60px 16px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-light);
+            border-top-color: var(--metallic-gold);
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            margin: 0 auto 15px;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .no-results p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--royal-navy);
+        }
+
+        /* Scroll to top */
+        .back-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--royal-navy);
+            color: var(--metallic-gold);
+            border: 2px solid var(--metallic-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 32, 63, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-top:hover {
+            background: var(--metallic-gold);
+            color: var(--royal-navy);
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE BREAKPOINTS
+           ═══════════════════════════════════════ */
+
+        /* Tablet (768px+) */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 55px 30px 45px;
+            }
+
+            .hero-logo img {
+                height: 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+
+            .stat-box {
+                padding: 15px 30px;
+                min-width: 140px;
+            }
+
+            .stat-value {
+                font-size: 2.3rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            .stats-container {
+                gap: 20px;
+            }
+
+            .search-section {
+                padding: 25px 20px;
+            }
+
+            .search-box input {
+                padding: 18px 55px 18px 20px;
+                font-size: 1.1rem;
+            }
+
+            .search-icon {
+                font-size: 1.4rem;
+                right: 20px;
+            }
+
+            /* Show horizontal nav, hide dropdown on tablet+ */
+            .cat-dropdown-wrapper {
+                display: none;
+            }
+
+            .cat-nav {
+                display: flex;
+                margin: 30px auto 20px;
+                padding: 0 20px;
+                gap: 10px;
+            }
+
+            .cat-btn {
+                padding: 12px 22px;
+                font-size: 0.95rem;
+            }
+
+            .main-container {
+                padding: 20px 20px 80px;
+            }
+
+            .category-group {
+                margin-bottom: 50px;
+            }
+
+            .category-title {
+                font-size: 1.6rem;
+                gap: 12px;
+            }
+
+            .category-icon {
+                font-size: 1.6rem;
+            }
+
+            .q-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .q-card {
+                padding: 22px;
+                border-radius: 16px;
+            }
+
+            .q-icon-badge {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+            }
+
+            .q-text {
+                font-size: 1.1rem;
+            }
+
+            .answer-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .answer-text {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                padding: 35px 20px;
+                font-size: 1rem;
+            }
+
+            footer .footer-logo {
+                width: 130px;
+            }
+
+            .back-top {
+                width: 52px;
+                height: 52px;
+                bottom: 25px;
+                left: 25px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Desktop (1024px+) */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 65px 40px 55px;
+                border-bottom-width: 5px;
+            }
+
+            .hero-logo img {
+                height: 95px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+                margin-bottom: 35px;
+            }
+
+            .stat-box {
+                padding: 18px 40px;
+                min-width: 160px;
+            }
+
+            .stat-value {
+                font-size: 2.6rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .stats-container {
+                gap: 25px;
+            }
+
+            .stat-box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .search-section {
+                padding: 30px 20px;
+            }
+
+            .search-box input {
+                padding: 18px 60px 18px 25px;
+                font-size: 1.15rem;
+            }
+
+            .search-icon {
+                font-size: 1.5rem;
+            }
+
+            .cat-nav {
+                margin: 35px auto 20px;
+                gap: 12px;
+            }
+
+            .cat-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .main-container {
+                padding: 25px 20px 80px;
+            }
+
+            .category-group {
+                margin-bottom: 60px;
+            }
+
+            .category-header-wrap {
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+                gap: 15px;
+            }
+
+            .category-title::after {
+                width: 60px;
+                height: 4px;
+            }
+
+            .category-icon {
+                font-size: 1.8rem;
+            }
+
+            .category-count-badge {
+                font-size: 0.95rem;
+                padding: 6px 16px;
+            }
+
+            .q-grid {
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                gap: 25px;
+            }
+
+            .q-card {
+                padding: 25px;
+            }
+
+            .q-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-hover);
+            }
+
+            .q-icon-badge {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                font-size: 1.3rem;
+            }
+
+            .q-header {
+                gap: 15px;
+            }
+
+            .q-number-label {
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+            }
+
+            .q-text {
+                font-size: 1.15rem;
+            }
+
+            .q-answer-wrapper {
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+
+            .answer-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .answer-text {
+                font-size: 1.15rem;
+                margin-top: 4px;
+            }
+
+            .q-hint {
+                font-size: 0.85rem;
+                margin-top: 15px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            footer .footer-logo {
+                width: 150px;
+                margin-bottom: 20px;
+            }
+
+            .back-top {
+                width: 55px;
+                height: 55px;
+                bottom: 30px;
+                left: 30px;
+                font-size: 1.4rem;
+            }
+
+            .back-top:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           ANIMATIONS
+           ═══════════════════════════════════════ */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Header -->
+    <header class="hero">
+        <div class="hero-logo">
+            <img src="./public/images/logo.png" alt="ملتقى مسطروه"
+                onerror="this.outerHTML='<i class=\'fas fa-landmark-dome\' style=\'font-size:4rem;color:var(--metallic-gold);\'></i>'" />
+        </div>
+        <h1>بنك وأرشيف الأسئلة للمعرفة المفتوحة</h1>
+        <div class="tagline">مسار التميز.. من الفكرة إلى الأثر المستدام</div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-value en-text" id="stat-q">0</div>
+                <div class="stat-label">سؤال معرفي</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value en-text" id="stat-c">0</div>
+                <div class="stat-label">مجالات معتمدة</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="ابحث في بنك الأسئلة والمجالات..." autocomplete="off" />
+        </div>
+    </section>
+
+    <!-- Category Nav: Mobile Dropdown -->
+    <div class="cat-dropdown-wrapper" id="catDropdownWrapper">
+        <button class="cat-dropdown-toggle" id="catDropdownToggle" onclick="toggleDropdown()">
+            <span class="toggle-label"><i class="fas fa-border-all"></i> <span id="dropdownLabel">عرض الكل</span></span>
+            <i class="fas fa-chevron-down toggle-chevron"></i>
+        </button>
+        <div class="cat-dropdown-menu" id="catDropdownMenu"></div>
+    </div>
+
+    <!-- Category Nav: Desktop Horizontal -->
+    <nav class="cat-nav" id="catNav"></nav>
+
+    <!-- Main Content -->
+    <main class="main-container" id="mainContent">
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>يتم استخراج وبناء محتوى بنك الأسئلة المعتمد...</p>
+        </div>
+    </main>
+
+    <div class="no-results" id="noResults" style="display: none;">
+        <i class="fas fa-folder-open"></i>
+        <p>لا توجد نتائج مطابقة، جرب كلمات مفتاحية أخرى</p>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <img src="./public/images/logo.png" alt="شعار مسطروه" class="footer-logo" onerror="this.style.display='none'" />
+        <p>المؤسسية، التميز، والأثر المستدام &mdash; &copy; 2026 <span>ملتقى مسطروه السنوي</span></p>
+    </footer>
+
+    <script>
+        // System Config
+        const ICONS_MAP = {
+            'ألغاز': 'fas fa-puzzle-piece',
+            'تاريخ': 'fas fa-landmark-dome',
+            'ديني': 'fas fa-book-quran',
+            'علوم': 'fas fa-flask-vial',
+            'رياضيات': 'fas fa-calculator',
+            'جغرافيا': 'fas fa-earth-africa',
+            'عامة': 'fas fa-book-open',
+            'اسلاميات': 'fas fa-mosque',
+            'ثقافة': 'fas fa-globe',
+            'كرة قدم': 'fas fa-futbol',
+            'متنوع': 'fas fa-icons',
+            'مصر': 'fas fa-monument',
+            'DEFAULT': 'fas fa-layer-group'
+        };
+
+        // Semantic Question Icons
+        const QUESTION_KEYWORDS = [
+            { words: ['نبي', 'رسول', 'قرآن', 'صحابي', 'صلاة', 'إسلام'], icon: 'fas fa-mosque' },
+            { words: ['عاصمة', 'بلد', 'دولة', 'قارة', 'محيط', 'بحر'], icon: 'fas fa-earth-americas' },
+            { words: ['معركة', 'ملك', 'امبراطور', 'ثورة', 'حكم'], icon: 'fas fa-shield-halved' },
+            { words: ['غزوة', 'سيف', 'فتح'], icon: 'fas fa-shield' },
+            { words: ['جبل', 'نهر', 'وادي'], icon: 'fas fa-mountain' },
+            { words: ['كم', 'ما هو', 'متى', 'أين', 'من هو'], icon: 'fas fa-circle-question' },
+            { words: ['عالم', 'اكتشف', 'اخترع', 'جهاز'], icon: 'fas fa-lightbulb' },
+            { words: ['لغز', 'شيء', 'يحملك'], icon: 'fas fa-brain' }
+        ];
+
+        function getQIcon(text) {
+            for (let item of QUESTION_KEYWORDS) {
+                if (item.words.some(w => text.includes(w))) {
+                    return item.icon;
+                }
+            }
+            return 'fas fa-quote-right';
+        }
+
+        // Smart Search Normalizer
+        const AR_FORM_MAP = {};
+        const formPairs = [
+            ['أ', 'ا'], ['إ', 'ا'], ['آ', 'ا'], ['ة', 'ه'], ['ى', 'ي'], ['ؤ', 'و'], ['ئ', 'ي']
+        ];
+        formPairs.forEach(([from, to]) => AR_FORM_MAP[from] = to);
+
+        function normalizeForSearch(text) {
+            if (!text) return '';
+            let res = text.replace(/[\u064B-\u065F\u0610-\u061A\u0670\ـ]/g, '');
+            let chars = res.split('');
+            for (let i = 0; i < chars.length; i++) {
+                if (AR_FORM_MAP[chars[i]]) chars[i] = AR_FORM_MAP[chars[i]];
+            }
+            return chars.join('').replace(/[^\u0600-\u06FFa-zA-Z0-9\s]/g, '').toLowerCase().trim();
+        }
+
+        function highlightMatch(text, queryWords) {
+            if (!queryWords || queryWords.length === 0) return text;
+            const diacritics = '[\\u064B-\\u065F\\u0610-\\u061A\\u0670]*';
+            let patterns = queryWords.filter(w => w.length > 1).map(word => {
+                return word.split('').map(char => {
+                    if (char === 'ا') return '[اأإآ]' + diacritics;
+                    if (char === 'ه') return '[هة]' + diacritics;
+                    if (char === 'ي') return '[يىئ]' + diacritics;
+                    if (char === 'و') return '[وؤ]' + diacritics;
+                    return char + diacritics;
+                }).join('');
+            });
+            if (patterns.length === 0) return text;
+            const combinedPattern = `(${patterns.join('|')})`;
+            try {
+                const regex = new RegExp(combinedPattern, 'gi');
+                return text.replace(regex, '<mark class="highlight-text">$1</mark>');
+            } catch (e) { return text; }
+        }
+
+        // State
+        let dbData = [];
+
+        async function init() {
+            try {
+                const res = await fetch('./adult_content.json');
+                const data = await res.json();
+                dbData = data;
+
+                document.getElementById('loader').style.display = 'none';
+
+                let qCount = 0;
+                data.forEach(c => qCount += c.questions.length);
+
+                animateValue("stat-q", 0, qCount, 1500);
+                animateValue("stat-c", 0, data.length, 1000);
+
+                renderNav(data);
+                renderLists(data);
+            } catch (err) {
+                document.getElementById('loader').innerHTML = '<div style="font-size:3rem;margin-bottom:15px;color:#D4AF37"><i class="fas fa-triangle-exclamation"></i></div><p style="color:#00203F;font-weight:700">حدث خطأ في جلب البيانات، يرجى تشغيل الخادم.</p>';
+                console.error(err);
+            }
+        }
+
+        function renderNav(data) {
+            // Desktop horizontal nav
+            const nav = document.getElementById('catNav');
+            nav.innerHTML = `<button class="cat-btn active" data-idx="-1" onclick="filterCategory(-1, this)"><i class="fas fa-border-all"></i> عرض الكل</button>`;
+            data.forEach((cat, idx) => {
+                const icon = ICONS_MAP[cat.category] || ICONS_MAP['DEFAULT'];
+                nav.innerHTML += `<button class="cat-btn" data-idx="${idx}" onclick="filterCategory(${idx}, this)"><i class="${icon}"></i> ${cat.category}</button>`;
+            });
+
+            // Mobile dropdown menu
+            const menu = document.getElementById('catDropdownMenu');
+            menu.innerHTML = `<button class="cat-dropdown-item active" data-idx="-1" onclick="selectDropdownItem(-1, this)"><i class="fas fa-border-all"></i> عرض الكل</button>`;
+            data.forEach((cat, idx) => {
+                const icon = ICONS_MAP[cat.category] || ICONS_MAP['DEFAULT'];
+                menu.innerHTML += `<button class="cat-dropdown-item" data-idx="${idx}" onclick="selectDropdownItem(${idx}, this)"><i class="${icon}"></i> ${cat.category} <span style="margin-right:auto;font-size:0.8rem;color:#999">${cat.questions.length}</span></button>`;
+            });
+        }
+
+        function toggleDropdown() {
+            document.getElementById('catDropdownWrapper').classList.toggle('open');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const wrapper = document.getElementById('catDropdownWrapper');
+            if (wrapper && !wrapper.contains(e.target)) {
+                wrapper.classList.remove('open');
+            }
+        });
+
+        function selectDropdownItem(idx, item) {
+            // Update dropdown UI
+            document.querySelectorAll('.cat-dropdown-item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            const icon = item.querySelector('i').className;
+            const label = idx === -1 ? 'عرض الكل' : item.childNodes[1].textContent.trim();
+            document.getElementById('dropdownLabel').textContent = label;
+            document.querySelector('#catDropdownToggle .toggle-label i').className = icon;
+            document.getElementById('catDropdownWrapper').classList.remove('open');
+
+            // Sync desktop nav
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            const matchBtn = document.querySelector(`.cat-btn[data-idx="${idx}"]`);
+            if (matchBtn) matchBtn.classList.add('active');
+
+            applyFilter(idx);
+        }
+
+        function filterCategory(idx, btn = null) {
+            // Update desktop nav UI
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            else document.querySelector('.cat-btn').classList.add('active');
+
+            // Sync mobile dropdown
+            document.querySelectorAll('.cat-dropdown-item').forEach(i => i.classList.remove('active'));
+            const matchItem = document.querySelector(`.cat-dropdown-item[data-idx="${idx}"]`);
+            if (matchItem) {
+                matchItem.classList.add('active');
+                const icon = matchItem.querySelector('i').className;
+                const label = idx === -1 ? 'عرض الكل' : matchItem.childNodes[1].textContent.trim();
+                document.getElementById('dropdownLabel').textContent = label;
+                document.querySelector('#catDropdownToggle .toggle-label i').className = icon;
+            }
+
+            applyFilter(idx);
+        }
+
+        function applyFilter(idx) {
+            const sections = document.querySelectorAll('.category-group');
+            if (idx === -1) {
+                sections.forEach(s => s.style.display = 'block');
+            } else {
+                sections.forEach(s => {
+                    s.style.display = parseInt(s.dataset.idx) === idx ? 'block' : 'none';
+                });
+            }
+
+            document.getElementById('searchInput').value = '';
+            renderLists(dbData);
+
+            if (idx !== -1) {
+                const updatedSections = document.querySelectorAll('.category-group');
+                updatedSections.forEach(s => {
+                    s.style.display = parseInt(s.dataset.idx) === idx ? 'block' : 'none';
+                });
+            }
+        }
+
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const query = e.target.value;
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector('.cat-btn').classList.add('active');
+                renderLists(dbData, query);
+            }, 300);
+        });
+
+        function renderLists(data, query = '') {
+            const main = document.getElementById('mainContent');
+            main.innerHTML = '';
+
+            const searchWords = query ? normalizeForSearch(query).split(/\s+/).filter(w => w.length > 0) : [];
+            let foundAny = false;
+
+            data.forEach((catObj, catIdx) => {
+                let filteredQs = catObj.questions;
+
+                if (searchWords.length > 0) {
+                    filteredQs = catObj.questions.filter(q => {
+                        const nQ = normalizeForSearch(q.question);
+                        const nA = normalizeForSearch(q.answer);
+                        return searchWords.every(w => nQ.includes(w) || nA.includes(w));
+                    });
+                }
+
+                if (filteredQs.length === 0) return;
+                foundAny = true;
+
+                const catIcon = ICONS_MAP[catObj.category] || ICONS_MAP['DEFAULT'];
+                const section = document.createElement('section');
+                section.className = 'category-group';
+                section.dataset.idx = catIdx;
+                section.style.animationDelay = (catIdx * 0.1) + 's';
+
+                let cardsHtml = '';
+                filteredQs.forEach((q, qIndex) => {
+                    const dispQ = searchWords.length > 0 ? highlightMatch(q.question, searchWords) : q.question;
+                    const dispA = searchWords.length > 0 ? highlightMatch(q.answer, searchWords) : q.answer;
+
+                    const qIcon = getQIcon(q.question);
+
+                    cardsHtml += `
+                        <div class="q-card" onclick="this.classList.toggle('open')">
+                            <div class="q-header">
+                                <div class="q-icon-badge"><i class="${qIcon}"></i></div>
+                                <div class="q-text-content">
+                                    <span class="q-number-label">سؤال رقم ${qIndex + 1}</span>
+                                    <div class="q-text">${dispQ}</div>
+                                </div>
+                            </div>
+                            <div class="q-answer-wrapper">
+                                <div class="answer-icon"><i class="fas fa-check"></i></div>
+                                <div class="answer-text">${dispA}</div>
+                            </div>
+                            <div class="q-hint"><i class="fas fa-hand-pointer"></i> انقر لإظهار الإجابة</div>
+                        </div>
+                    `;
+                });
+
+                section.innerHTML = `
+                    <div class="category-header-wrap">
+                        <div class="category-title">
+                            <div class="category-icon"><i class="${catIcon}"></i></div>
+                            <h2>${catObj.category}</h2>
+                        </div>
+                        <div class="category-count-badge">${filteredQs.length} أسئلة</div>
+                    </div>
+                    <div class="q-grid">
+                        ${cardsHtml}
+                    </div>
+                `;
+                main.appendChild(section);
+            });
+
+            document.getElementById('noResults').style.display = foundAny ? 'none' : 'block';
+        }
+
+        // Animations
+        function animateValue(id, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                document.getElementById(id).innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    document.getElementById(id).innerHTML = end;
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Scroll Top
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backTop');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+
+        init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أطلس العبقري الصغير - فانوس المعرفة</title>
+    <meta name="description" content="بنك أسئلة مسابقة فانوس المعرفة للمرحلة الابتدائية - 500 سؤال وجواب" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- Font Awesome (Local) -->
+    <link rel="stylesheet" href="libs/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css" />
+    <!-- Material Symbols (Local) -->
+    <link rel="stylesheet" href="libs/material-symbols/material-symbols.css" />
+    <!-- Bootstrap Icons (Local) -->
+    <link rel="stylesheet" href="libs/bootstrap-icons/package/font/bootstrap-icons.min.css" />
+    <!-- Phosphor Icons (Local) -->
+    <link rel="stylesheet" href="libs/phosphor-icons/package/src/regular/style.css" />
+    <style>
+        /* ===== Icon Libraries Inline Fix ===== */
+        .material-symbols-outlined {
+            font-size: inherit !important;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .q-label .material-symbols-outlined {
+            font-size: 0.75rem !important;
+        }
+
+        .q-label i,
+        .q-label .bi,
+        .q-label .ph {
+            font-size: inherit;
+            vertical-align: middle;
+        }
+
+        .category-header .material-symbols-outlined {
+            font-size: 2.5rem !important;
+        }
+
+        /* ===== CSS Variables ===== */
+        :root {
+            --bg-primary: #0f0c29;
+            --bg-secondary: #302b63;
+            --bg-tertiary: #24243e;
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-hover: rgba(255, 255, 255, 0.12);
+            --text-primary: #ffffff;
+            --text-secondary: #b8b5d0;
+            --accent-1: #ff6b6b;
+            --accent-2: #feca57;
+            --accent-3: #48dbfb;
+            --accent-4: #ff9ff3;
+            --accent-5: #54a0ff;
+            --accent-6: #5f27cd;
+            --accent-7: #01a3a4;
+            --accent-8: #f368e0;
+            --accent-9: #ff9f43;
+            --accent-10: #00d2d3;
+            --green: #00b894;
+            --radius: 20px;
+            --radius-sm: 14px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ===== Reset & Base ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary), var(--bg-tertiary));
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== Floating Background Elements ===== */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-shapes span {
+            position: absolute;
+            display: block;
+            font-size: 2rem;
+            animation: floatUp linear infinite;
+            opacity: 0.15;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.15;
+            }
+
+            90% {
+                opacity: 0.15;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* ===== Hero Header ===== */
+        .hero {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, rgba(93, 39, 205, 0.3), transparent);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-2);
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-9), var(--accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: fadeInDown 0.8s ease 0.1s both;
+            line-height: 1.3;
+        }
+
+        .hero h1 .lamp {
+            display: inline-block;
+            font-size: 1.2em;
+            -webkit-text-fill-color: initial;
+            animation: swing 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(254, 202, 87, 0.6));
+        }
+
+        @keyframes swing {
+
+            0%,
+            100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
+            animation: fadeInDown 0.8s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            padding: 15px 25px;
+            text-align: center;
+            min-width: 120px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .stat-card .stat-num {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* ===== Search Bar ===== */
+        .search-container {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            padding: 0 20px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 55px 16px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-3);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 30px rgba(72, 219, 251, 0.15);
+        }
+
+        .search-box .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ===== Category Navigation ===== */
+        .category-nav {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 10px;
+            padding: 10px 20px 30px;
+            overflow-x: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            scrollbar-width: none;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            flex-shrink: 0;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .cat-btn.active {
+            background: linear-gradient(135deg, var(--accent-6), var(--accent-5));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 20px rgba(95, 39, 205, 0.4);
+        }
+
+        .cat-btn .cat-emoji {
+            font-size: 1.2rem;
+        }
+
+        /* ===== Main Content ===== */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ===== Category Section ===== */
+        .category-section {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 20px 25px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-6), var(--accent-4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .category-header .cat-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .category-header .cat-info h2 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 800;
+        }
+
+        .category-header .cat-info .cat-count {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== Questions Grid ===== */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        @media (max-width: 400px) {
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Question Card ===== */
+        .q-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .q-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            transition: var(--transition);
+        }
+
+        .q-card:hover {
+            background: var(--card-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .q-card .q-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .q-card .q-emoji {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            transition: var(--transition);
+        }
+
+        .q-card:hover .q-emoji {
+            transform: scale(1.15) rotate(-5deg);
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .q-card .q-text {
+            flex: 1;
+        }
+
+        .q-card .q-label {
+            font-size: 0.7rem;
+            color: var(--accent-3);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .q-card .q-question {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .q-card .q-answer {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .q-card.show-answer .q-answer {
+            opacity: 1;
+            max-height: 150px;
+        }
+
+        .q-card .q-answer .answer-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--accent-7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .q-card .q-answer .answer-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .q-card .click-hint {
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .q-card.show-answer .click-hint {
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
+        }
+
+        /* ===== Card Color Accents ===== */
+        .q-card[data-color="1"]::before {
+            background: var(--accent-1);
+        }
+
+        .q-card[data-color="2"]::before {
+            background: var(--accent-2);
+        }
+
+        .q-card[data-color="3"]::before {
+            background: var(--accent-3);
+        }
+
+        .q-card[data-color="4"]::before {
+            background: var(--accent-4);
+        }
+
+        .q-card[data-color="5"]::before {
+            background: var(--accent-5);
+        }
+
+        .q-card[data-color="6"]::before {
+            background: var(--accent-6);
+        }
+
+        .q-card[data-color="7"]::before {
+            background: var(--accent-7);
+        }
+
+        .q-card[data-color="8"]::before {
+            background: var(--accent-8);
+        }
+
+        .q-card[data-color="9"]::before {
+            background: var(--accent-9);
+        }
+
+        .q-card[data-color="10"]::before {
+            background: var(--accent-10);
+        }
+
+        /* ===== Loading State ===== */
+        .loader {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .loader .spinner {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--accent-3);
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== Search Highlights ===== */
+        mark.highlight-text {
+            background-color: rgba(254, 202, 87, 0.25);
+            color: var(--accent-2);
+            padding: 0 4px;
+            border-radius: 6px;
+            font-weight: 800;
+            box-shadow: 0 0 10px rgba(254, 202, 87, 0.15);
+            border-bottom: 2px solid var(--accent-2);
+        }
+
+        /* ===== No Results ===== */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+
+        .no-results .nr-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .no-results p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ===== Back to Top ===== */
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-6), var(--accent-5));
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(95, 39, 205, 0.5);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .back-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-top:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer span {
+            color: var(--accent-1);
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-6);
+            border-radius: 10px;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 15px 30px;
+            }
+
+            .hero-stats {
+                gap: 10px;
+            }
+
+            .stat-card {
+                min-width: 100px;
+                padding: 12px 18px;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .q-card {
+                padding: 16px;
+            }
+
+            .category-header {
+                padding: 15px 18px;
+                gap: 10px;
+            }
+
+            .category-header .cat-icon {
+                font-size: 2rem;
+            }
+
+            .back-top {
+                bottom: 20px;
+                left: 20px;
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Background Emojis -->
+    <div class="bg-shapes" id="bgShapes"></div>
+
+    <!-- Hero Header -->
+    <header class="hero">
+        <div class="hero-badge">
+            <i class="fas fa-star"></i>
+            للمرحلة الابتدائية
+        </div>
+        <h1>
+            <span class="lamp">🏮</span>
+            أطلس العبقري الصغير
+        </h1>
+        <p>بنك أسئلة مسابقة فانوس المعرفة — اختبر معلوماتك!</p>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-num" id="totalQ">0</div>
+                <div class="stat-label">سؤال</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="totalCat">0</div>
+                <div class="stat-label">فئة</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">🏆</div>
+                <div class="stat-label">تحدى نفسك!</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 ابحث عن سؤال..." />
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <nav class="category-nav" id="categoryNav"></nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>جاري تحميل الأسئلة...</p>
+        </div>
+    </main>
+
+    <!-- No Results -->
+    <div class="no-results" id="noResults">
+        <div class="nr-emoji">🤔</div>
+        <p>لم يتم العثور على نتائج... جرب كلمة أخرى!</p>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        صنع بـ <span>❤️</span> لأطفالنا الأذكياء — أطلس العبقري الصغير
+    </footer>
+
+    <script>
+        // ===== Arabic Text Normalizer =====
+        // Comprehensive mapping: Arabic Presentation Forms → Standard Arabic
+        const AR_FORM_MAP = {};
+        // Build mapping from Presentation Forms B (U+FE70-U+FEFF) to base letters
+        const formB = [
+            [0xFE70, 0x064B], [0xFE71, 0x0640], [0xFE72, 0x064C], [0xFE74, 0x064D],
+            [0xFE76, 0x064E], [0xFE77, 0x064E], [0xFE78, 0x064F], [0xFE79, 0x064F],
+            [0xFE7A, 0x0650], [0xFE7B, 0x0650], [0xFE7C, 0x0651], [0xFE7D, 0x0651],
+            [0xFE7E, 0x0652], [0xFE7F, 0x0652],
+            [0xFE80, 0x0621], [0xFE81, 0x0622], [0xFE82, 0x0622],
+            [0xFE83, 0x0623], [0xFE84, 0x0623], [0xFE85, 0x0624], [0xFE86, 0x0624],
+            [0xFE87, 0x0625], [0xFE88, 0x0625], [0xFE89, 0x0626], [0xFE8A, 0x0626],
+            [0xFE8B, 0x0626], [0xFE8C, 0x0626], [0xFE8D, 0x0627], [0xFE8E, 0x0627],
+            [0xFE8F, 0x0628], [0xFE90, 0x0628], [0xFE91, 0x0628], [0xFE92, 0x0628],
+            [0xFE93, 0x0629], [0xFE94, 0x0629],
+            [0xFE95, 0x062A], [0xFE96, 0x062A], [0xFE97, 0x062A], [0xFE98, 0x062A],
+            [0xFE99, 0x062B], [0xFE9A, 0x062B], [0xFE9B, 0x062B], [0xFE9C, 0x062B],
+            [0xFE9D, 0x062C], [0xFE9E, 0x062C], [0xFE9F, 0x062C], [0xFEA0, 0x062C],
+            [0xFEA1, 0x062D], [0xFEA2, 0x062D], [0xFEA3, 0x062D], [0xFEA4, 0x062D],
+            [0xFEA5, 0x062E], [0xFEA6, 0x062E], [0xFEA7, 0x062E], [0xFEA8, 0x062E],
+            [0xFEA9, 0x062F], [0xFEAA, 0x062F], [0xFEAB, 0x0630], [0xFEAC, 0x0630],
+            [0xFEAD, 0x0631], [0xFEAE, 0x0631], [0xFEAF, 0x0632], [0xFEB0, 0x0632],
+            [0xFEB1, 0x0633], [0xFEB2, 0x0633], [0xFEB3, 0x0633], [0xFEB4, 0x0633],
+            [0xFEB5, 0x0634], [0xFEB6, 0x0634], [0xFEB7, 0x0634], [0xFEB8, 0x0634],
+            [0xFEB9, 0x0635], [0xFEBA, 0x0635], [0xFEBB, 0x0635], [0xFEBC, 0x0635],
+            [0xFEBD, 0x0636], [0xFEBE, 0x0636], [0xFEBF, 0x0636], [0xFEC0, 0x0636],
+            [0xFEC1, 0x0637], [0xFEC2, 0x0637], [0xFEC3, 0x0637], [0xFEC4, 0x0637],
+            [0xFEC5, 0x0638], [0xFEC6, 0x0638], [0xFEC7, 0x0638], [0xFEC8, 0x0638],
+            [0xFEC9, 0x0639], [0xFECA, 0x0639], [0xFECB, 0x0639], [0xFECC, 0x0639],
+            [0xFECD, 0x063A], [0xFECE, 0x063A], [0xFECF, 0x063A], [0xFED0, 0x063A],
+            [0xFED1, 0x0641], [0xFED2, 0x0641], [0xFED3, 0x0641], [0xFED4, 0x0641],
+            [0xFED5, 0x0642], [0xFED6, 0x0642], [0xFED7, 0x0642], [0xFED8, 0x0642],
+            [0xFED9, 0x0643], [0xFEDA, 0x0643], [0xFEDB, 0x0643], [0xFEDC, 0x0643],
+            [0xFEDD, 0x0644], [0xFEDE, 0x0644], [0xFEDF, 0x0644], [0xFEE0, 0x0644],
+            [0xFEE1, 0x0645], [0xFEE2, 0x0645], [0xFEE3, 0x0645], [0xFEE4, 0x0645],
+            [0xFEE5, 0x0646], [0xFEE6, 0x0646], [0xFEE7, 0x0646], [0xFEE8, 0x0646],
+            [0xFEE9, 0x0647], [0xFEEA, 0x0647], [0xFEEB, 0x0647], [0xFEEC, 0x0647],
+            [0xFEED, 0x0648], [0xFEEE, 0x0648],
+            [0xFEEF, 0x0649], [0xFEF0, 0x0649],
+            [0xFEF1, 0x064A], [0xFEF2, 0x064A], [0xFEF3, 0x064A], [0xFEF4, 0x064A],
+            [0xFEF5, 0x0644], [0xFEF6, 0x0644], [0xFEF7, 0x0644], [0xFEF8, 0x0644],
+            [0xFEF9, 0x0644], [0xFEFA, 0x0644], [0xFEFB, 0x0644], [0xFEFC, 0x0644],
+        ];
+        // Farsi/Urdu presentation forms
+        const formA = [
+            [0xFB50, 0x0671], [0xFB51, 0x0671],
+            [0xFB56, 0x067E], [0xFB57, 0x067E], [0xFB58, 0x067E], [0xFB59, 0x067E],
+            [0xFB7A, 0x0686], [0xFB7B, 0x0686], [0xFB7C, 0x0686], [0xFB7D, 0x0686],
+            [0xFB8A, 0x0698], [0xFB8B, 0x0698],
+            [0xFB8E, 0x06A9], [0xFB8F, 0x06A9], [0xFB90, 0x06A9], [0xFB91, 0x06A9],
+            [0xFB92, 0x06AF], [0xFB93, 0x06AF], [0xFB94, 0x06AF], [0xFB95, 0x06AF],
+            [0xFBFC, 0x06CC], [0xFBFD, 0x06CC], [0xFBFE, 0x06CC], [0xFBFF, 0x06CC],
+            [0xFBE8, 0x06D2], [0xFBE9, 0x06D2],
+        ];
+        // Also handle ھ (U+06BE heh doachashmee) → ه (U+0647)
+        formB.forEach(([from, to]) => AR_FORM_MAP[String.fromCharCode(from)] = String.fromCharCode(to));
+        formA.forEach(([from, to]) => AR_FORM_MAP[String.fromCharCode(from)] = String.fromCharCode(to));
+        AR_FORM_MAP['\u06BE'] = '\u0647'; // ھ → ه
+        AR_FORM_MAP['\u06CC'] = '\u064A'; // ی → ي
+        AR_FORM_MAP['\u0649'] = '\u064A'; // ى → ي (alef maqsura)
+
+        // Resolve mapping chains (e.g., FBFF → 06CC → 064A becomes FBFF → 064A)
+        for (const key of Object.keys(AR_FORM_MAP)) {
+            let val = AR_FORM_MAP[key];
+            let depth = 0;
+            while (AR_FORM_MAP[val] && depth < 5) {
+                val = AR_FORM_MAP[val];
+                depth++;
+            }
+            AR_FORM_MAP[key] = val;
+        }
+
+        function normalizeArabic(text) {
+            if (!text) return '';
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                const ch = text[i];
+                result += AR_FORM_MAP[ch] || ch;
+            }
+            // Also remove diacritics
+            return result.replace(/[\u064B-\u065F\u0610-\u061A\u0670]/g, '');
+        }
+
+        // ===== Master Search Normalizer =====
+        // Simplifies letters (أإآ -> ا, ة -> ه) for more forgiving searches
+        function normalizeForSearch(text) {
+            if (!text) return '';
+            let t = normalizeArabic(text);
+            return t.replace(/[أإآ]/g, 'ا')
+                .replace(/ة/g, 'ه')
+                .replace(/ى/g, 'ي')
+                .replace(/ؤ/g, 'و')
+                .replace(/ئ/g, 'ي')
+                .replace(/ـ/g, '') // Remove tatweel (kashida)
+                .replace(/[^\u0600-\u06FFa-zA-Z0-9\s]/g, '') // Remove punctuation for clean matching
+                .toLowerCase()
+                .trim();
+        }
+
+        // ===== Search Text Highlighter =====
+        function highlightMatch(text, queryWords) {
+            if (!queryWords || queryWords.length === 0) return text;
+
+            // Regex class for optional Arabic diacritics
+            const diacritics = '[\\u064B-\\u065F\\u0610-\\u061A\\u0670]*';
+
+            // Map each search word into a forgiving regex pattern
+            let patterns = queryWords.filter(w => w.length > 1).map(word => {
+                return word.split('').map(char => {
+                    if (char === 'ا') return '[اأإآ]' + diacritics;
+                    if (char === 'ه') return '[هة]' + diacritics;
+                    if (char === 'ي') return '[يىئ]' + diacritics;
+                    if (char === 'و') return '[وؤ]' + diacritics;
+                    return char + diacritics;
+                }).join('');
+            });
+
+            if (patterns.length === 0) return text;
+
+            // Combine words into one OR regex pattern
+            const combinedPattern = `(${patterns.join('|')})`;
+
+            try {
+                const regex = new RegExp(combinedPattern, 'gi');
+                return text.replace(regex, '<mark class="highlight-text">$1</mark>');
+            } catch (e) {
+                return text;
+            }
+        }
+
+        // ===== Category-Based Icon System =====
+        // Each category has a set of icon variations for visual variety
+        const CATEGORY_ICON_SETS = [
+            {
+                keywords: ['قرآن', 'أنبياء', 'دينية'],
+                emoji: '�',
+                defaultIcon: 'fas fa-book-quran',
+                // Sub-icons based on question content within this category
+                subIcons: [
+                    { match: /سورة|آية|آيات/, emoji: '📖', fa: 'fas fa-book-quran', bi: 'bi bi-book-half', ms: 'menu_book' },
+                    { match: /نبي|الأنبياء|النبي|عليه السلام/, emoji: '🕌', fa: 'fas fa-mosque', bi: 'bi bi-moon-stars-fill', ms: 'auto_stories' },
+                    { match: /لقب|لُقب/, emoji: '🏷️', fa: 'fas fa-tag', bi: 'bi bi-bookmark-star', ms: 'label' },
+                    { match: /عدد|كم/, emoji: '🔢', fa: 'fas fa-hashtag', bi: 'bi bi-hash', ms: 'tag' },
+                    { match: /قصة|أصحاب/, emoji: '📜', fa: 'fas fa-scroll', bi: 'bi bi-journal-text', ms: 'history_edu' },
+                ],
+                fallbackEmojis: ['📖', '🕌', '🌙', '☪️', '✨'],
+                fallbackIcons: ['fas fa-book-quran', 'fas fa-mosque', 'fas fa-moon', 'fas fa-star-and-crescent', 'fas fa-star'],
+            },
+            {
+                keywords: ['سيرة', 'نبوية', 'صحابة'],
+                emoji: '🌟',
+                defaultIcon: 'fas fa-star',
+                subIcons: [
+                    { match: /صحابي|الصحابي|لقب|لُقب/, emoji: '⭐', fa: 'fas fa-user-shield', bi: 'bi bi-person-badge', ms: 'military_tech' },
+                    { match: /غزوة|معركة|فتح/, emoji: '⚔️', fa: 'fas fa-shield-halved', bi: 'bi bi-shield-fill', ms: 'shield' },
+                    { match: /زوجة|أم |بنت|ابنة|صحابية|مرضعة/, emoji: '👩', fa: 'fas fa-person-dress', bi: 'bi bi-person-hearts', ms: 'woman' },
+                    { match: /مسجد|كعبة|قبلة/, emoji: '🕌', fa: 'fas fa-mosque', bi: 'bi bi-moon-stars', ms: 'mosque' },
+                    { match: /سيف|سلاح|ناقة|براق|دابة/, emoji: '🗡️', fa: 'fas fa-shield', bi: 'bi bi-shield-shaded', ms: 'security' },
+                    { match: /هجرة|هاجر|حبشة/, emoji: '🐪', fa: 'fas fa-route', bi: 'bi bi-signpost-split', ms: 'route' },
+                    { match: /عمر|سنة|عام|كم/, emoji: '📅', fa: 'fas fa-calendar', bi: 'bi bi-calendar-event', ms: 'event' },
+                    { match: /أول من|أول/, emoji: '�', fa: 'fas fa-award', bi: 'bi bi-award', ms: 'emoji_events' },
+                    { match: /بيعة|وفد/, emoji: '🤝', fa: 'fas fa-handshake', bi: 'bi bi-hand-index', ms: 'handshake' },
+                ],
+                fallbackEmojis: ['🌟', '⭐', '☪️', '🏅', '📜'],
+                fallbackIcons: ['fas fa-star', 'fas fa-user-shield', 'fas fa-star-and-crescent', 'fas fa-award', 'fas fa-scroll'],
+            },
+            {
+                keywords: ['علوم', 'بيئة', 'حيوان', 'إنسان', 'فضاء', 'طب', 'كيمياء'],
+                emoji: '🔬',
+                defaultIcon: 'fas fa-flask',
+                subIcons: [
+                    { match: /رمز|كيميائي|عنصر/, emoji: '⚗️', fa: 'fas fa-flask-vial', bi: 'bi bi-droplet-half', ms: 'science' },
+                    { match: /غاز|أكسجين|نيتروجين|هيدروجين|أوزون|كربون/, emoji: '💨', fa: 'fas fa-wind', bi: 'bi bi-cloud', ms: 'air' },
+                    { match: /قلب|دم|صمام|ضخ/, emoji: '❤️', fa: 'fas fa-heart-pulse', bi: 'bi bi-heart-pulse', ms: 'monitor_heart' },
+                    { match: /عظم|عظام|فقر/, emoji: '🦴', fa: 'fas fa-bone', bi: 'bi bi-bandaid', ms: 'orthopedics' },
+                    { match: /عضو|كبد|كلى|بنكرياس|غدة|أسنان/, emoji: '🏥', fa: 'fas fa-stethoscope', bi: 'bi bi-heart-pulse-fill', ms: 'medical_services' },
+                    { match: /عين|بصر|سمع|أذن|توازن/, emoji: '�️', fa: 'fas fa-eye', bi: 'bi bi-eye', ms: 'visibility' },
+                    { match: /دماغ|عقل|أعصاب/, emoji: '🧠', fa: 'fas fa-brain', bi: 'bi bi-lightbulb', ms: 'psychology' },
+                    { match: /جلد|ميلانين|لون/, emoji: '🎨', fa: 'fas fa-palette', bi: 'bi bi-palette', ms: 'palette' },
+                    { match: /حيوان|طائر|سمك|فهد|جمل|نعامة|زرافة|أفعى|قرش|حوت|نحل|نمل|جمبري/, emoji: '🦁', fa: 'fas fa-paw', bi: 'bi bi-bug', ms: 'pets' },
+                    { match: /كوكب|شمس|فضاء|نجم|فلك/, emoji: '🪐', fa: 'fas fa-satellite', bi: 'bi bi-rocket-takeoff', ms: 'rocket_launch' },
+                    { match: /ماء|سائل|زئبق|معدن/, emoji: '💧', fa: 'fas fa-droplet', bi: 'bi bi-droplet', ms: 'water_drop' },
+                    { match: /حرارة|غليان|درجة/, emoji: '🌡️', fa: 'fas fa-temperature-half', bi: 'bi bi-thermometer-half', ms: 'thermostat' },
+                    { match: /مادة|كربون|ماس/, emoji: '�', fa: 'fas fa-gem', bi: 'bi bi-gem', ms: 'diamond' },
+                    { match: /خلية|كروموسوم|DNA/, emoji: '🧬', fa: 'fas fa-dna', bi: 'bi bi-lungs', ms: 'biotech' },
+                    { match: /علم|يدرس/, emoji: '�', fa: 'fas fa-graduation-cap', bi: 'bi bi-mortarboard', ms: 'school' },
+                    { match: /عضلة|قوة/, emoji: '�', fa: 'fas fa-dumbbell', bi: 'bi bi-activity', ms: 'fitness_center' },
+                    { match: /نبات|شجر|ورق|كلوروفيل|شمع/, emoji: '🌿', fa: 'fas fa-leaf', bi: 'bi bi-tree', ms: 'park' },
+                    { match: /ألوان|قوس قزح/, emoji: '🌈', fa: 'fas fa-rainbow', bi: 'bi bi-rainbow', ms: 'looks' },
+                ],
+                fallbackEmojis: ['🔬', '🧪', '⚗️', '🧬', '💊'],
+                fallbackIcons: ['fas fa-flask', 'fas fa-flask-vial', 'fas fa-atom', 'fas fa-dna', 'fas fa-microscope'],
+            },
+            {
+                keywords: ['جغرافيا', 'معالم', 'عواصم', 'دول'],
+                emoji: '🌍',
+                defaultIcon: 'fas fa-earth-africa',
+                subIcons: [
+                    { match: /عاصمة|دولة|بلد|مدينة/, emoji: '🏙️', fa: 'fas fa-city', bi: 'bi bi-building', ms: 'location_city' },
+                    { match: /نهر|بحر|محيط|بحيرة/, emoji: '🌊', fa: 'fas fa-water', bi: 'bi bi-water', ms: 'water' },
+                    { match: /جبل|بركان|صحراء/, emoji: '⛰️', fa: 'fas fa-mountain', bi: 'bi bi-geo-alt-fill', ms: 'terrain' },
+                    { match: /قارة|أفريقيا|آسيا|أوروبا/, emoji: '🗺️', fa: 'fas fa-map', bi: 'bi bi-map', ms: 'explore' },
+                    { match: /علم|عملة|لغة/, emoji: '🏳️', fa: 'fas fa-flag', bi: 'bi bi-flag', ms: 'flag' },
+                    { match: /مساحة|أكبر|أصغر|أطول|أقصر/, emoji: '📏', fa: 'fas fa-ruler', bi: 'bi bi-rulers', ms: 'straighten' },
+                    { match: /حيوان|طائر|سمك/, emoji: '🦁', fa: 'fas fa-paw', bi: 'bi bi-bug', ms: 'pets' },
+                    { match: /مضيق|قناة/, emoji: '⚓', fa: 'fas fa-anchor', bi: 'bi bi-signpost', ms: 'sailing' },
+                ],
+                fallbackEmojis: ['🌍', '🗺️', '🏙️', '🌊', '⛰️'],
+                fallbackIcons: ['fas fa-earth-africa', 'fas fa-map', 'fas fa-city', 'fas fa-water', 'fas fa-mountain'],
+            },
+            {
+                keywords: ['رياضيات', 'ألغاز', 'منطق'],
+                emoji: '🔢',
+                defaultIcon: 'fas fa-calculator',
+                subIcons: [
+                    { match: /عدد|ضرب|ناتج|جمع|حاصل|طرح/, emoji: '�', fa: 'fas fa-calculator', bi: 'bi bi-calculator', ms: 'calculate' },
+                    { match: /مساحة|محيط|مربع|مستطيل|دائرة|مثلث|ضلع|زاوية/, emoji: '📐', fa: 'fas fa-shapes', bi: 'bi bi-triangle', ms: 'category' },
+                    { match: /نصف|ضعف|ربع|ثلث/, emoji: '➗', fa: 'fas fa-divide', bi: 'bi bi-slash-lg', ms: 'percent' },
+                    { match: /جذر|أس|قوة/, emoji: '√', fa: 'fas fa-square-root-variable', bi: 'bi bi-graph-up', ms: 'functions' },
+                    { match: /لغز|شيء|يكسر|يذهب|ليس|بدون|يمكن/, emoji: '🧩', fa: 'fas fa-puzzle-piece', bi: 'bi bi-puzzle', ms: 'extension' },
+                    { match: /تسلسل|ترتيب|التالي/, emoji: '🔗', fa: 'fas fa-list-ol', bi: 'bi bi-sort-numeric-down', ms: 'format_list_numbered' },
+                    { match: /ساعة|وقت|دقيقة/, emoji: '⏰', fa: 'fas fa-clock', bi: 'bi bi-clock', ms: 'schedule' },
+                    { match: /منطق|صح|خطأ/, emoji: '🧠', fa: 'fas fa-brain', bi: 'bi bi-lightbulb', ms: 'psychology' },
+                ],
+                fallbackEmojis: ['🔢', '🧩', '📐', '🧠', '💡'],
+                fallbackIcons: ['fas fa-calculator', 'fas fa-puzzle-piece', 'fas fa-shapes', 'fas fa-brain', 'fas fa-lightbulb'],
+            },
+        ];
+
+        // Legacy category emoji lookup (for nav buttons)
+        const CATEGORY_EMOJIS = {
+            'القرآن': { emoji: '📖' },
+            'الأنبياء': { emoji: '📖' },
+            'السيرة': { emoji: '🌟' },
+            'النبوية': { emoji: '�' },
+            'الصحابة': { emoji: '🌟' },
+            'العلوم': { emoji: '🔬' },
+            'الطب': { emoji: '🔬' },
+            'الكيمياء': { emoji: '🔬' },
+            'الجغرافيا': { emoji: '🌍' },
+            'المعلومات': { emoji: '🌍' },
+            'الرياضيات': { emoji: '🔢' },
+            'المنطق': { emoji: '🔢' },
+            'الألغاز': { emoji: '🔢' },
+        };
+
+        const BG_EMOJIS = ['🏮', '⭐', '🌙', '📖', '🔬', '🌍', '🧩', '🎯', '🏆', '💡', '🎓', '✨', '🦁', '🚀', '🪐'];
+
+        // ===== Find matching category icon set =====
+        function findCategorySet(catName) {
+            const norm = normalizeArabic(catName);
+            for (const catSet of CATEGORY_ICON_SETS) {
+                for (const kw of catSet.keywords) {
+                    if (norm.includes(normalizeArabic(kw))) return catSet;
+                }
+            }
+            return null;
+        }
+
+        // ===== Get emoji & icon for a question based on its category =====
+        function getQuestionEmoji(text, catSet, qIdx) {
+            if (!catSet) return '❓';
+            const normText = normalizeArabic(text);
+            // Try to match sub-icons first
+            for (const sub of catSet.subIcons) {
+                if (sub.match.test(normText)) return sub.emoji;
+            }
+            // Fallback: cycle through category emojis
+            return catSet.fallbackEmojis[qIdx % catSet.fallbackEmojis.length];
+        }
+
+        function getQuestionIcon(text, catSet, qIdx) {
+            if (!catSet) return '<i class="fas fa-circle-question"></i>';
+            const normText = normalizeArabic(text);
+            // Try to match sub-icons first
+            for (const sub of catSet.subIcons) {
+                if (sub.match.test(normText)) {
+                    return `<i class="${sub.fa}" style="margin-left: 4px;"></i>`;
+                }
+            }
+            // Fallback: cycle through category FA icons
+            const icon = catSet.fallbackIcons[qIdx % catSet.fallbackIcons.length];
+            return `<i class="${icon}" style="margin-left: 4px;"></i>`;
+        }
+
+        function getCategoryEmoji(catName) {
+            const norm = normalizeArabic(catName);
+            for (const [key, val] of Object.entries(CATEGORY_EMOJIS)) {
+                if (norm.includes(normalizeArabic(key))) return val.emoji;
+            }
+            // Try CATEGORY_ICON_SETS
+            const set = findCategorySet(catName);
+            if (set) return set.emoji;
+            return '📚';
+        }
+
+        function getCategoryShortName(catName) {
+            // Extract a shorter name from the full category
+            const match = catName.match(/[:：]\s*(.+)/);
+            if (match) return match[1].trim();
+            return catName.replace(/[()（）]/g, '').trim();
+        }
+
+        // ===== Create Background Floating Emojis =====
+        function createBgShapes() {
+            const container = document.getElementById('bgShapes');
+            for (let i = 0; i < 20; i++) {
+                const span = document.createElement('span');
+                span.textContent = BG_EMOJIS[Math.floor(Math.random() * BG_EMOJIS.length)];
+                span.style.left = Math.random() * 100 + '%';
+                span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                span.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                span.style.animationDelay = (Math.random() * 20) + 's';
+                container.appendChild(span);
+            }
+        }
+
+        // ===== Load & Render Data =====
+        async function loadData() {
+            try {
+                const response = await fetch('./المحتوي.json');
+                const data = await response.json();
+                renderAll(data);
+            } catch (err) {
+                // Fallback: if fetch fails, show error
+                document.getElementById('loader').innerHTML = `
+                    <div style="font-size:3rem;margin-bottom:15px">😕</div>
+                    <p>تعذر تحميل البيانات. تأكد من فتح الصفحة عبر خادم محلي (Live Server).</p>
+                `;
+            }
+        }
+
+        let allData = [];
+
+        function renderAll(data) {
+            allData = data;
+            const loader = document.getElementById('loader');
+            loader.style.display = 'none';
+
+            // Stats
+            let totalQ = 0;
+            data.forEach(cat => totalQ += cat.questions.length);
+            animateNumber('totalQ', totalQ);
+            animateNumber('totalCat', data.length);
+
+            // Category Nav
+            renderCategoryNav(data);
+
+            // Render all categories
+            renderCategories(data);
+        }
+
+        function renderCategoryNav(data) {
+            const nav = document.getElementById('categoryNav');
+            nav.innerHTML = '';
+
+            // All button
+            const allBtn = document.createElement('button');
+            allBtn.className = 'cat-btn active';
+            allBtn.innerHTML = `<span class="cat-emoji">📚</span> الكل`;
+            allBtn.onclick = () => {
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                allBtn.classList.add('active');
+                showCategory(-1);
+            };
+            nav.appendChild(allBtn);
+
+            data.forEach((cat, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'cat-btn';
+                const emoji = getCategoryEmoji(cat.category);
+                btn.innerHTML = `<span class="cat-emoji">${emoji}</span> ${cat.category.substring(0, 30)}`;
+                btn.onclick = () => {
+                    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    showCategory(i);
+                };
+                nav.appendChild(btn);
+            });
+        }
+
+        function renderCategories(data, filter = '') {
+            const main = document.getElementById('mainContent');
+            // Remove old sections (keep loader)
+            main.querySelectorAll('.category-section').forEach(el => el.remove());
+
+            let hasResults = false;
+
+            // Prepare search words for Smart Search
+            const searchWords = filter ? normalizeForSearch(filter).split(/\s+/).filter(w => w.length > 0) : [];
+
+            data.forEach((cat, catIdx) => {
+                let filteredQ = cat.questions;
+
+                // Smart search filter logic
+                if (searchWords.length > 0) {
+                    filteredQ = cat.questions.filter(q => {
+                        const normQ = normalizeForSearch(q.question);
+                        const normA = normalizeForSearch(q.answer);
+                        // All search words must be present in either question or answer
+                        return searchWords.every(word => normQ.includes(word) || normA.includes(word));
+                    });
+                }
+
+                if (filteredQ.length === 0) return;
+                hasResults = true;
+
+                const section = document.createElement('section');
+                section.className = 'category-section';
+                section.setAttribute('data-cat', catIdx);
+                section.style.animationDelay = (catIdx * 0.1) + 's';
+
+                const emoji = getCategoryEmoji(cat.category);
+                const catSet = findCategorySet(cat.category);
+
+                section.innerHTML = `
+                    <div class="category-header">
+                        <div class="cat-icon">${emoji}</div>
+                        <div class="cat-info">
+                            <h2>${cat.category}</h2>
+                            <div class="cat-count">${filteredQ.length} سؤال</div>
+                        </div>
+                    </div>
+                    <div class="questions-grid"></div>
+                `;
+
+                const grid = section.querySelector('.questions-grid');
+
+                filteredQ.forEach((q, qIdx) => {
+                    const qEmoji = getQuestionEmoji(q.question, catSet, qIdx);
+                    const qIcon = getQuestionIcon(q.question, catSet, qIdx);
+                    const colorIdx = ((catIdx * 3 + qIdx) % 10) + 1;
+
+                    const card = document.createElement('div');
+                    card.className = 'q-card';
+                    card.setAttribute('data-color', colorIdx);
+                    card.onclick = () => card.classList.toggle('show-answer');
+
+                    // Highlight matched text
+                    const displayQuestion = searchWords.length > 0 ? highlightMatch(q.question, searchWords) : q.question;
+                    const displayAnswer = searchWords.length > 0 ? highlightMatch(q.answer, searchWords) : q.answer;
+
+                    card.innerHTML = `
+                        <div class="q-top">
+                            <div class="q-emoji">${qEmoji}</div>
+                            <div class="q-text">
+                                <div class="q-label">${qIcon} سؤال</div>
+                                <div class="q-question">${displayQuestion}</div>
+                            </div>
+                        </div>
+                        <div class="q-answer">
+                            <div class="answer-icon"><i class="fas fa-check"></i></div>
+                            <div class="answer-text">${displayAnswer}</div>
+                        </div>
+                        <div class="click-hint">👆 اضغط لإظهار الإجابة</div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                main.appendChild(section);
+            });
+
+            document.getElementById('noResults').style.display = hasResults ? 'none' : 'block';
+        }
+
+        function showCategory(idx) {
+            const sections = document.querySelectorAll('.category-section');
+            if (idx === -1) {
+                sections.forEach(s => s.style.display = '');
+            } else {
+                sections.forEach(s => {
+                    s.style.display = s.getAttribute('data-cat') == idx ? '' : 'none';
+                });
+            }
+        }
+
+        // ===== Search =====
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', function () {
+            clearTimeout(searchTimeout);
+            const val = this.value.trim();
+            searchTimeout = setTimeout(() => {
+                renderCategories(allData, val);
+                // Reset category nav
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector('.cat-btn').classList.add('active');
+            }, 300);
+        });
+
+        // ===== Animate Numbers =====
+        function animateNumber(id, target) {
+            const el = document.getElementById(id);
+            let current = 0;
+            const step = Math.ceil(target / 40);
+            const interval = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                el.textContent = current;
+            }, 30);
+        }
+
+        // ===== Back to Top Visibility =====
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backTop');
+            btn.classList.toggle('visible', window.scrollY > 400);
+        });
+
+        // ===== Initialize =====
+        createBgShapes();
+        loadData();
+    </script>
+</body>
+
+</html>
