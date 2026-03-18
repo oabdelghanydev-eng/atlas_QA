@@ -8,6 +8,10 @@
     ],
     "routes": [
         {
+            "src": "/mastrouh_qa_prep",
+            "dest": "/mastrouh_qa_prep.html"
+        },
+        {
             "src": "/mastrouh_qa",
             "dest": "/mastrouh_qa.html"
         },
